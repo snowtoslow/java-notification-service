@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.*;
 import javax.mail.internet.*;
-//import java.util.HashMap;
 import javax.mail.MessagingException;
 import java.util.Map;
 import java.util.Properties;
