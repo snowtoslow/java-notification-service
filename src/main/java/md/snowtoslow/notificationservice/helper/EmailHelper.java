@@ -1,17 +1,15 @@
 package md.snowtoslow.notificationservice.helper;
 
 import md.snowtoslow.notificationservice.controller.EmailRequest;
+import md.snowtoslow.notificationservice.properties.EmailProperties;
 import org.springframework.stereotype.Component;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
-import javax.mail.Session;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import java.util.Properties;
+
 
 @Component
 public class EmailHelper {
@@ -35,17 +33,12 @@ public class EmailHelper {
         return message;
     }
 
-    public Session createSession(Properties prop) {
-        //Session session = Session.getInstance(prop, new Authenticator() {
-        //  @Override
-        //protected PasswordAuthentication getPasswordAuthentication() {
-        //  return new PasswordAuthentication(username, password);
-        //}
-        //});
-        return Session.getInstance(prop);
-
+    public Session createSession(EmailProperties properties) {
+        return Session.getInstance(properties.toProperties(), new Authenticator() {
+          @Override
+        protected PasswordAuthentication getPasswordAuthentication() {
+          return new PasswordAuthentication(properties.getUsername(), properties.getPassword());
+        }
+        });
     }
-
-
-
 }

@@ -40,7 +40,7 @@ public class EmailService {
         return emailRequest;
     }
     private void sendEmail(EmailRequest emailRequest) throws MessagingException {
-        Session session = emailHelper.createSession(emailProperties.toProperties());
+        Session session = emailHelper.createSession(emailProperties);
         Message message = emailHelper.createMessage(emailRequest, session);
         Transport.send(message);
 
