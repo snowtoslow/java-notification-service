@@ -15,7 +15,7 @@ public class EmailValidatorService {
 
     private StringsHelper stringsHelper;
     private String regex_TO_FOR = "^[A-Za-z0-9+_.-]+@(.+)$";//EmailRegex for fields "TO' and "For"
-    private String regex_MES_SUBJ = "^(?:\\b\\w+\\b[\\s\\r\\n]*){1,250}$";
+    private String regex_MES_SUBJ = "^.{0,1350}$";//regex which allow all characters and the length of string should be between 0-250 words
     public EmailValidatorService(StringsHelper stringsHelper) {
         this.stringsHelper = stringsHelper;
     }
