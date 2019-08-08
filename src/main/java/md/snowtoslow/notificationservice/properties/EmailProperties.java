@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.Properties;
 @Component
 @ConfigurationProperties("mail.smtp")
-public class EmailProperties extends Properties {
+public class EmailProperties  {
 
     private Boolean auth;
     private Boolean starttlsEnable;

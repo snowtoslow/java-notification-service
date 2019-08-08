@@ -23,7 +23,7 @@ public class EmailHelper {
 
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
-        mimeBodyPart.setContent(emailRequest.getSubject(), "text/html");
+        mimeBodyPart.setContent(emailRequest.getMessage(), "text/html");
 
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(mimeBodyPart);
