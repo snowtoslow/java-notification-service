@@ -23,7 +23,7 @@
 		<repository>
 			<id>bintray-snowtoslowscompany-M2</id>
 			<name>snowtoslowscompany-M2</name>
-			<url>https://api.bintray.com/maven/snowtoslowscompany/M2/${artifactId}/;publish=1</url>
+			<url>https://api.bintray.com/maven/snowtoslowscompany/M2/${project.artifactId}/;publish=1</url>
 		</repository>
 	</distributionManagement>
 
@@ -39,6 +39,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 		<dependency>
