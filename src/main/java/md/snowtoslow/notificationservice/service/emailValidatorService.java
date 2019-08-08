@@ -15,7 +15,7 @@ public class EmailValidatorService {
 
     private StringsHelper stringsHelper;
     private String regex_TO_FOR = "^[A-Za-z0-9+_.-]+@(.+)$";//EmailRegex for fields "TO' and "For"
-    private String regex_MES_SUBJ = "^[A-Z]{1,30}$";
+    private String regex_MES_SUBJ = "^(?:\\b\\w+\\b[\\s\\r\\n]*){1,250}$";
     public EmailValidatorService(StringsHelper stringsHelper) {
         this.stringsHelper = stringsHelper;
     }
@@ -38,14 +38,14 @@ public class EmailValidatorService {
         if (stringsHelper.isNullorEmpty(emailRequest.getSubject())){
             fails.add(new ValidationFail("subject" , "cannot be NULL or EMPTY"));
         }   else if (!emailRequest.getSubject().matches((regex_MES_SUBJ))){
-            fails.add(new ValidationFail("subject", "Not corresponding to the aloud length"));
+            fails.add(new ValidationFail("subject", "Not corresponding to the allowed length"));
         }
 
 
         if (stringsHelper.isNullorEmpty(emailRequest.getMessage())){
             fails.add(new ValidationFail("message" , "cannot be NULL or EMPTY"));
         }   else if ((!emailRequest.getMessage().matches((regex_MES_SUBJ)))){
-            fails.add(new ValidationFail("message", "Not corresponding to the aloud length"));
+            fails.add(new ValidationFail("message", "Not corresponding to the allowed length"));
         }
 
 
